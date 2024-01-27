@@ -1,6 +1,7 @@
 import React from 'react';
-import './JournalForm.css';
+import styles from './JournalForm.module.css';
 import Button from '../Button/Button';
+import cn from 'classnames';
 
 function JournalForm({ onSubmit }) {   
     const [formValidState, setFormValidState] = React.useState({
@@ -37,12 +38,20 @@ function JournalForm({ onSubmit }) {
   };
 
   return (  
-      <form className='journal-form' onSubmit={addJournalItem}>
-        <input type="text" name='title' style={{border: formValidState.title ? undefined : '2px solid red'}}/>   
-        <input type="date" name='date' style={{border: formValidState.date ? undefined : '2px solid red'}}/>   
+      <form className={styles['journal-form']} onSubmit={addJournalItem}>
+
+        <input type="text" name='title'  className={cn(styles['input'], {
+          [styles['invalid']]: !formValidState.title}
+        )} />
+
+        <input type="date" name='date' className={cn(styles['input'], {[styles['invalid']]: !formValidState.date})}/>  
+
         <input type="text" name='tag' />
-        <textarea name="post" id="" cols="30" rows="10" style={{border: formValidState.post ? undefined : '2px solid red'}}></textarea>   
+
+        <textarea name="post" id="" cols="30" rows="10"  className={cn(styles['input'], {[styles['invalid']]: !formValidState.post})}></textarea>
+
         <Button text='Сохранить'/>
+
       </form>    
   );  
 }
