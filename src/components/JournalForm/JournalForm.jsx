@@ -3,7 +3,7 @@ import styles from './JournalForm.module.css';
 import Button from '../Button/Button';
 import cn from 'classnames';
 import { INITIAL_STATE, formReducer } from './JournalForm.state';
-
+import Input from '../Input/Input';
 
 
 function JournalForm({ onSubmit }) { 
@@ -12,7 +12,7 @@ function JournalForm({ onSubmit }) {
     const titleRef = React.useRef();
     const dateRef = React.useRef();
     const postRef = React.useRef();
-
+  
     const focusError = (isValid) => {
       switch(true) {
         case !isValid.title:
@@ -59,27 +59,24 @@ function JournalForm({ onSubmit }) {
 
   return (  
       <form className={styles['journal-form']} onSubmit={addJournalItem}>
-
         <div>
-          <input type="text" ref={titleRef} onChange={onChange}  value={values.title} name='title'  className={cn(styles['input-title'], {
-          [styles['invalid']]: !isValid.title}
-        )}/>
+            <Input type="text" ref={titleRef} isValid={isValid.title} onChange={onChange} value={values.title} name='title' appearence='title' /> 
         </div>
 
         <div className={styles['form-row']}>
-          <label htmlFor="date" className={styles['form-label']}>
+          <label htmlFor="date" >
             <img src="/public/calendar.svg" alt="Иконка календаря" />
             <span>Дата</span>
           </label>
-          <input type="date" ref={dateRef} onChange={onChange} value={values.date} name='date' id='data' className={cn(styles['input'], {[styles['invalid']]: !isValid.date})}/> 
+          <Input type="date" ref={dateRef} isValid={isValid.date} onChange={onChange} value={values.date} name='date' id='data' /> 
         </div>      
         
         <div className={styles['form-row']}>
-        <label htmlFor="tag" className={styles['form-label']}>
+        <label htmlFor="tag"  >
             <img src="/public/folder.svg" alt="Иконка папки" />
             <span>Метки</span>
           </label>
-          <input type="text" id='tag'  onChange={onChange} value={values.tag} name='tag' className={styles['input']} />
+          <Input type="text" id='tag'  onChange={onChange} value={values.tag} name='tag' className={styles['input']} />
         </div>
         
 

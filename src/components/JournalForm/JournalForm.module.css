@@ -5,24 +5,9 @@
   color: beige;
 }
 
-.input-title {
-  font-family: Source Sans Pro;
-  color: beige;
-  border: none;
-  background: none;
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  font-family: Source Sans Pro, sans-serif;
-  border-bottom: 1px solid hsla(0, 11%, 52%, 0.893);
-  width: 100%;
-}
-
 .form-row {
   display: flex;
-  align-items: center;
-  
+  align-items: center;  
 }
 
 .form-label {
