@@ -25,8 +25,7 @@ import { UserContextProvider } from './context/user.context';
 //   ];
 
 function App() {  
-  const [items, setItems] = useLocalStorage('data');  
-  
+  const [items, setItems] = useLocalStorage('data');    
 
   function mapItems(items) {
     if (!items) {

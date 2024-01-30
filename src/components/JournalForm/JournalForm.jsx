@@ -65,8 +65,7 @@ function JournalForm({ onSubmit }) {
 
   return (  
 
-            <form className={styles['journal-form']} onSubmit={addJournalItem}>
-                  {userId}
+            <form className={styles['journal-form']} onSubmit={addJournalItem}>                  
                     <div>
                         <Input type="text" ref={titleRef} isValid={isValid.title} onChange={onChange} value={values.title} name='title' appearence='title' /> 
                     </div>
@@ -89,7 +88,7 @@ function JournalForm({ onSubmit }) {
 
                     <textarea name="post" ref={postRef} id="" onChange={onChange} value={values.post} cols="30" rows="10"  className={cn(styles['input'], {[styles['invalid']]: !isValid.post})}></textarea>
 
-                    <Button text='Сохранить'/>
+                    <Button>Сохранить</Button>   
 
                   </form>
 
